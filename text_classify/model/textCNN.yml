@@ -1,0 +1,115 @@
+"backend: tensorflow\nclass_name: Sequential\nconfig:\n  layers:\n  - class_name:\
+  \ Embedding\n    config:\n      activity_regularizer: null\n      batch_input_shape:\
+  \ !!python/tuple\n      - null\n      - 30\n      dtype: float32\n      embeddings_constraint:\
+  \ null\n      embeddings_initializer:\n        class_name: RandomUniform\n     \
+  \   config:\n          maxval: 0.05\n          minval: -0.05\n          seed: null\n\
+  \      embeddings_regularizer: null\n      input_dim: 1040\n      input_length:\
+  \ 30\n      mask_zero: false\n      name: embedding\n      output_dim: 200\n   \
+  \   trainable: true\n  - class_name: Reshape\n    config:\n      dtype: float32\n\
+  \      name: reshape\n      target_shape: !!python/tuple\n      - 30\n      - 200\n\
+  \      - 1\n      trainable: true\n  - class_name: Model\n    config:\n      input_layers:\n\
+  \      - input_1\n      - 0\n      - 0\n      layers:\n      - class_name: InputLayer\n\
+  \        config:\n          batch_input_shape: !!python/tuple\n          - null\n\
+  \          - 30\n          - 200\n          - 1\n          dtype: float32\n    \
+  \      name: input_1\n          sparse: false\n        inbound_nodes: []\n     \
+  \   name: input_1\n      - class_name: Conv2D\n        config:\n          activation:\
+  \ relu\n          activity_regularizer: null\n          bias_constraint: null\n\
+  \          bias_initializer:\n            class_name: Zeros\n            config:\
+  \ {}\n          bias_regularizer: null\n          data_format: channels_last\n \
+  \         dilation_rate: &id001 !!python/tuple\n          - 1\n          - 1\n \
+  \         dtype: float32\n          filters: 128\n          kernel_constraint: null\n\
+  \          kernel_initializer:\n            class_name: GlorotUniform\n        \
+  \    config:\n              seed: null\n          kernel_regularizer: null\n   \
+  \       kernel_size: !!python/tuple\n          - 1\n          - 200\n          name:\
+  \ conv2d\n          padding: valid\n          strides: !!python/tuple\n        \
+  \  - 1\n          - 1\n          trainable: true\n          use_bias: true\n   \
+  \     inbound_nodes:\n        - - input_1\n          - 0\n          - 0\n      \
+  \    - {}\n        name: conv2d\n      - class_name: Conv2D\n        config:\n \
+  \         activation: relu\n          activity_regularizer: null\n          bias_constraint:\
+  \ null\n          bias_initializer:\n            class_name: Zeros\n           \
+  \ config: {}\n          bias_regularizer: null\n          data_format: channels_last\n\
+  \          dilation_rate: *id001\n          dtype: float32\n          filters: 128\n\
+  \          kernel_constraint: null\n          kernel_initializer:\n            class_name:\
+  \ GlorotUniform\n            config:\n              seed: null\n          kernel_regularizer:\
+  \ null\n          kernel_size: !!python/tuple\n          - 2\n          - 200\n\
+  \          name: conv2d_1\n          padding: valid\n          strides: !!python/tuple\n\
+  \          - 1\n          - 1\n          trainable: true\n          use_bias: true\n\
+  \        inbound_nodes:\n        - - input_1\n          - 0\n          - 0\n   \
+  \       - {}\n        name: conv2d_1\n      - class_name: Conv2D\n        config:\n\
+  \          activation: relu\n          activity_regularizer: null\n          bias_constraint:\
+  \ null\n          bias_initializer:\n            class_name: Zeros\n           \
+  \ config: {}\n          bias_regularizer: null\n          data_format: channels_last\n\
+  \          dilation_rate: *id001\n          dtype: float32\n          filters: 128\n\
+  \          kernel_constraint: null\n          kernel_initializer:\n            class_name:\
+  \ GlorotUniform\n            config:\n              seed: null\n          kernel_regularizer:\
+  \ null\n          kernel_size: !!python/tuple\n          - 3\n          - 200\n\
+  \          name: conv2d_2\n          padding: valid\n          strides: !!python/tuple\n\
+  \          - 1\n          - 1\n          trainable: true\n          use_bias: true\n\
+  \        inbound_nodes:\n        - - input_1\n          - 0\n          - 0\n   \
+  \       - {}\n        name: conv2d_2\n      - class_name: Conv2D\n        config:\n\
+  \          activation: relu\n          activity_regularizer: null\n          bias_constraint:\
+  \ null\n          bias_initializer:\n            class_name: Zeros\n           \
+  \ config: {}\n          bias_regularizer: null\n          data_format: channels_last\n\
+  \          dilation_rate: *id001\n          dtype: float32\n          filters: 128\n\
+  \          kernel_constraint: null\n          kernel_initializer:\n            class_name:\
+  \ GlorotUniform\n            config:\n              seed: null\n          kernel_regularizer:\
+  \ null\n          kernel_size: !!python/tuple\n          - 4\n          - 200\n\
+  \          name: conv2d_3\n          padding: valid\n          strides: !!python/tuple\n\
+  \          - 1\n          - 1\n          trainable: true\n          use_bias: true\n\
+  \        inbound_nodes:\n        - - input_1\n          - 0\n          - 0\n   \
+  \       - {}\n        name: conv2d_3\n      - class_name: Conv2D\n        config:\n\
+  \          activation: relu\n          activity_regularizer: null\n          bias_constraint:\
+  \ null\n          bias_initializer:\n            class_name: Zeros\n           \
+  \ config: {}\n          bias_regularizer: null\n          data_format: channels_last\n\
+  \          dilation_rate: *id001\n          dtype: float32\n          filters: 128\n\
+  \          kernel_constraint: null\n          kernel_initializer:\n            class_name:\
+  \ GlorotUniform\n            config:\n              seed: null\n          kernel_regularizer:\
+  \ null\n          kernel_size: !!python/tuple\n          - 5\n          - 200\n\
+  \          name: conv2d_4\n          padding: valid\n          strides: !!python/tuple\n\
+  \          - 1\n          - 1\n          trainable: true\n          use_bias: true\n\
+  \        inbound_nodes:\n        - - input_1\n          - 0\n          - 0\n   \
+  \       - {}\n        name: conv2d_4\n      - class_name: MaxPooling2D\n       \
+  \ config:\n          data_format: channels_last\n          dtype: float32\n    \
+  \      name: max_pooling2d\n          padding: valid\n          pool_size: &id002\
+  \ !!python/tuple\n          - 30\n          - 1\n          strides: *id002\n   \
+  \       trainable: true\n        inbound_nodes:\n        - - conv2d\n          -\
+  \ 0\n          - 0\n          - {}\n        name: max_pooling2d\n      - class_name:\
+  \ MaxPooling2D\n        config:\n          data_format: channels_last\n        \
+  \  dtype: float32\n          name: max_pooling2d_1\n          padding: valid\n \
+  \         pool_size: &id003 !!python/tuple\n          - 29\n          - 1\n    \
+  \      strides: *id003\n          trainable: true\n        inbound_nodes:\n    \
+  \    - - conv2d_1\n          - 0\n          - 0\n          - {}\n        name: max_pooling2d_1\n\
+  \      - class_name: MaxPooling2D\n        config:\n          data_format: channels_last\n\
+  \          dtype: float32\n          name: max_pooling2d_2\n          padding: valid\n\
+  \          pool_size: &id004 !!python/tuple\n          - 28\n          - 1\n   \
+  \       strides: *id004\n          trainable: true\n        inbound_nodes:\n   \
+  \     - - conv2d_2\n          - 0\n          - 0\n          - {}\n        name:\
+  \ max_pooling2d_2\n      - class_name: MaxPooling2D\n        config:\n         \
+  \ data_format: channels_last\n          dtype: float32\n          name: max_pooling2d_3\n\
+  \          padding: valid\n          pool_size: &id005 !!python/tuple\n        \
+  \  - 27\n          - 1\n          strides: *id005\n          trainable: true\n \
+  \       inbound_nodes:\n        - - conv2d_3\n          - 0\n          - 0\n   \
+  \       - {}\n        name: max_pooling2d_3\n      - class_name: MaxPooling2D\n\
+  \        config:\n          data_format: channels_last\n          dtype: float32\n\
+  \          name: max_pooling2d_4\n          padding: valid\n          pool_size:\
+  \ &id006 !!python/tuple\n          - 26\n          - 1\n          strides: *id006\n\
+  \          trainable: true\n        inbound_nodes:\n        - - conv2d_4\n     \
+  \     - 0\n          - 0\n          - {}\n        name: max_pooling2d_4\n      -\
+  \ class_name: Concatenate\n        config:\n          axis: -1\n          dtype:\
+  \ float32\n          name: concatenate\n          trainable: true\n        inbound_nodes:\n\
+  \        - - - max_pooling2d\n            - 0\n            - 0\n            - &id007\
+  \ {}\n          - - max_pooling2d_1\n            - 0\n            - 0\n        \
+  \    - *id007\n          - - max_pooling2d_2\n            - 0\n            - 0\n\
+  \            - *id007\n          - - max_pooling2d_3\n            - 0\n        \
+  \    - 0\n            - *id007\n          - - max_pooling2d_4\n            - 0\n\
+  \            - 0\n            - *id007\n        name: concatenate\n      name: model\n\
+  \      output_layers:\n      - concatenate\n      - 0\n      - 0\n  - class_name:\
+  \ Flatten\n    config:\n      data_format: channels_last\n      dtype: float32\n\
+  \      name: flatten\n      trainable: true\n  - class_name: Dense\n    config:\n\
+  \      activation: softmax\n      activity_regularizer: null\n      bias_constraint:\
+  \ null\n      bias_initializer:\n        class_name: Zeros\n        config: {}\n\
+  \      bias_regularizer: null\n      dtype: float32\n      kernel_constraint: null\n\
+  \      kernel_initializer:\n        class_name: GlorotUniform\n        config:\n\
+  \          seed: null\n      kernel_regularizer: null\n      name: dense\n     \
+  \ trainable: true\n      units: 6\n      use_bias: true\n  name: sequential\nkeras_version:\
+  \ 2.2.4-tf\n"

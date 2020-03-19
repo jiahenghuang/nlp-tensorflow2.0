@@ -15,8 +15,6 @@ def convolution(config):
     model = Model(inputs=inn, outputs=outt)
     return model
 
-
-
 def cnn_mulfilter(n_symbols,embedding_weights,config):
 
     model =Sequential([
