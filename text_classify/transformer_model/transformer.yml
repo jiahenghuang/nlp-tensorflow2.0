@@ -1,0 +1,33 @@
+"backend: tensorflow\nclass_name: Model\nconfig:\n  input_layers:\n  - input_1\n \
+  \ - 0\n  - 0\n  layers:\n  - class_name: InputLayer\n    config:\n      batch_input_shape:\
+  \ !!python/tuple\n      - null\n      - null\n      dtype: int32\n      name: input_1\n\
+  \      sparse: false\n    inbound_nodes: []\n    name: input_1\n  - class_name:\
+  \ Embedding\n    config:\n      activity_regularizer: null\n      batch_input_shape:\
+  \ !!python/tuple\n      - null\n      - 30\n      dtype: float32\n      embeddings_constraint:\
+  \ null\n      embeddings_initializer:\n        class_name: RandomUniform\n     \
+  \   config:\n          maxval: 0.05\n          minval: -0.05\n          seed: null\n\
+  \      embeddings_regularizer: null\n      input_dim: 1181\n      input_length:\
+  \ 30\n      mask_zero: false\n      name: embedding\n      output_dim: 200\n   \
+  \   trainable: true\n    inbound_nodes:\n    - - input_1\n      - 0\n      - 0\n\
+  \      - {}\n    name: embedding\n  - class_name: Position_Embedding\n    config:\n\
+  \      dtype: float32\n      name: position__embedding\n      trainable: true\n\
+  \    inbound_nodes:\n    - - embedding\n      - 0\n      - 0\n      - {}\n    name:\
+  \ position__embedding\n  - class_name: Attention\n    config:\n      dtype: float32\n\
+  \      name: attention\n      trainable: true\n    inbound_nodes:\n    - - - position__embedding\n\
+  \        - 0\n        - 0\n        - &id001 {}\n      - - position__embedding\n\
+  \        - 0\n        - 0\n        - *id001\n      - - position__embedding\n   \
+  \     - 0\n        - 0\n        - *id001\n    name: attention\n  - class_name: GlobalAveragePooling1D\n\
+  \    config:\n      data_format: channels_last\n      dtype: float32\n      name:\
+  \ global_average_pooling1d\n      trainable: true\n    inbound_nodes:\n    - - attention\n\
+  \      - 0\n      - 0\n      - {}\n    name: global_average_pooling1d\n  - class_name:\
+  \ Dropout\n    config:\n      dtype: float32\n      name: dropout\n      noise_shape:\
+  \ null\n      rate: 0.5\n      seed: null\n      trainable: true\n    inbound_nodes:\n\
+  \    - - global_average_pooling1d\n      - 0\n      - 0\n      - {}\n    name: dropout\n\
+  \  - class_name: Dense\n    config:\n      activation: softmax\n      activity_regularizer:\
+  \ null\n      bias_constraint: null\n      bias_initializer:\n        class_name:\
+  \ Zeros\n        config: {}\n      bias_regularizer: null\n      dtype: float32\n\
+  \      kernel_constraint: null\n      kernel_initializer:\n        class_name: GlorotUniform\n\
+  \        config:\n          seed: null\n      kernel_regularizer: null\n      name:\
+  \ dense\n      trainable: true\n      units: 6\n      use_bias: true\n    inbound_nodes:\n\
+  \    - - dropout\n      - 0\n      - 0\n      - {}\n    name: dense\n  name: model\n\
+  \  output_layers:\n  - dense\n  - 0\n  - 0\nkeras_version: 2.2.4-tf\n"
